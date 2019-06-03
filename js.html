@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css.css">
+    <title>js</title>
+</head>
+<body>
+    <input type="button" onclick="let i = this.value.split(' '); ++i[1]; this.value = i.join(' ')" value="Нажата: 0 раз">
+    <div>
+        <input id="incr" type="button" onclick="addCounter()" value="Нажата: 0 раз">
+    </div>
+    <hr>
+    <div id="clc" class="red">Меняю цвет</div>
+    <div id="clc2" class="red">Меняю цвет</div>
+    <div id="clc3" class="red">Меняю цвет</div>
+    <hr>
+    <div id="commit">
+        <textarea id="area" cols="30" rows="10"></textarea>
+        <br>
+        <button id="send">Отправить</button>
+    </div>
+    <div id="insert">
+        <div></div>
+    </div>
+<script src="js.js"></script>
+</body>
+</html>
