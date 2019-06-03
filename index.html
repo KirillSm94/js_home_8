@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="css.css">
+    <title>vue</title>
+</head>
+<body>
+    <div id="app">
+        <p>Счетчик равен: {{ count }}</p>
+        <p>
+            <button @click="riseCounter">Увеличить счетчик. Нажато: {{addCount}}</button>
+            <button @click="riseCounterTwo">Уменьшить счетчик Нажато: {{subCount}}</button>
+        </p>
+        <hr>
+        <div>
+            <div @click="isActive = !isActive" :class="{'red': isActive, 'green': !isActive}">Меняю цвет</div>
+            <div @click="isActiv = !isActiv" :class="{'red': isActiv, 'green': !isActiv}">Меняю цвет</div>
+            <div @click="isActi = !isActi" :class="{'red': isActi, 'green': !isActi}">Меняю цвет</div>
+        </div>
+        <hr>
+        <div v-for="item in items">
+            <img :src="src" />
+            <br>
+            Автор: {{item.author}}
+            <br>
+             {{ item.message }}
+            <br>
+            Дата:{{ item.date }}
+        </div>
+        <textarea cols="30" rows="10" v-model="comment"></textarea>
+        <br>
+        <button @click="addItem">Отправить комментарий</button>
+    </div>
+
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+            addCount: 0,
+            subCount: 0,
+
+            isActive: true,
+            isActiv: true,
+            isActi: true,
+
+            items: [],
+            comment: '',
+            src: 'avatarka.gif'
+        },
+        methods: {
+            riseCounter() {
+                this.count++;
+                this.addCount++;
+            },
+            riseCounterTwo() {
+                this.count--;
+                this.subCount++;
+            },
+            addItem(){
+                let lc = new Date();
+                this.items.push({message: this.comment, date: lc.toLocaleTimeString(), author: 'Аноним'})
+            }
+        }
+    });
+</script>
+</body>
+</html>
